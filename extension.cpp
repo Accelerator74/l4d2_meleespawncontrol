@@ -60,7 +60,7 @@ bool MeleeSpawnControl::SDK_OnLoad( char *error, size_t maxlength, bool late )
 
 #if defined PLATFORM_WINDOWS
 	if (!g_pGameConf->GetMemSig("KeyValues::SetString",(void **)&Game_KeyValues__SetString)) {
-		snprintf(error, maxlength, "Cannot get signature for KeyValues::SetString", GAMEDATA_FILE);
+		snprintf(error, maxlength, "Cannot get signature for KeyValues::SetString");
 		g_pSM->LogError(myself, error);
 		return false;
 	}
