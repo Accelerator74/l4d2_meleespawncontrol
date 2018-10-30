@@ -9,6 +9,7 @@
  */
 
 #include "smsdk_ext.h"
+#include <cstring>
 
 /**
  * @brief Sample implementation of the SDK Extension.
@@ -82,10 +83,10 @@ public:
 	 * @return				True to succeed, false to fail.
 	 */
 	//virtual bool SDK_OnMetamodPauseChange(bool paused, char *error, size_t maxlength);
+#endif
 public:
 	bool SetupHooks(char *error, size_t maxlength);
 	void RemoveHooks();
-#endif
 };
 
 #endif // _INCLUDE_SOURCEMOD_EXTENSION_PROPER_H_

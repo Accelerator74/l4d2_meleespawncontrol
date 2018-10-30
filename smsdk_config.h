@@ -11,7 +11,7 @@
 /* Basic information exposed publicly */
 #define SMEXT_CONF_NAME			"[L4D2] Melee & CSS Weapons Spawn Control"
 #define SMEXT_CONF_DESCRIPTION		"Unlocks all melee and CSS weapons on every campaign"
-#define SMEXT_CONF_VERSION		"1.0.0.4"
+#define SMEXT_CONF_VERSION		"1.0.0.5"
 #define SMEXT_CONF_AUTHOR		"V10, Machine, Accelerator"
 #define SMEXT_CONF_URL			"https://github.com/Accelerator74/l4d2_weaponspawncontrol"
 #define SMEXT_CONF_LOGTAG		"WSC"
@@ -27,7 +27,7 @@
  * @brief Sets whether or not this plugin required Metamod.
  * NOTE: Uncomment to enable, comment to disable.
  */
-#define SMEXT_CONF_METAMOD		
+//#define SMEXT_CONF_METAMOD		
 
 /** Enable interfaces you want to use here by uncommenting lines */
 //#define SMEXT_ENABLE_FORWARDSYS

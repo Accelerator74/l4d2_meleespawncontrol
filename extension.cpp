@@ -1,5 +1,5 @@
 #include "extension.h"
-
+#include "KeyValues.h"
 #include "CDetour/detours.h"
 
 #define GAMEDATA_FILE "l4d2_weaponspawncontrol"
@@ -41,11 +41,6 @@ DETOUR_DECL_MEMBER1(CDirectorItemManager__IsMeleeWeaponAllowedToExist, bool, cha
 }
 
 DETOUR_DECL_MEMBER1(CDirectorItemManager__IsWeaponAllowedToExist, bool, char*, csweapon_name)
-{
-	return true;
-}
-
-bool MeleeSpawnControl::SDK_OnMetamodLoad( ISmmAPI *ismm, char *error, size_t maxlength, bool late )
 {
 	return true;
 }

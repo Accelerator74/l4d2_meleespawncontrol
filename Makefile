@@ -1,7 +1,6 @@
 # Makefile
 HX_SOURCEMOD = ../sourcemod
 HX_SDKL4D2 = ../hl2sdk
-HX_METAMOD = ../mmsource
 #
 # l4d2_weaponspawncontrol.ext.so
 #
@@ -9,8 +8,6 @@ HX_INCLUDE = -I. \
 	-I$(HX_SDKL4D2)/public \
 	-I$(HX_SDKL4D2)/public/tier0 \
 	-I$(HX_SDKL4D2)/public/tier1 \
-	-I$(HX_METAMOD)/core \
-	-I$(HX_METAMOD)/core/sourcehook \
 	-I$(HX_SOURCEMOD)/public \
 	-I$(HX_SOURCEMOD)/public/CDetour \
 	-I$(HX_SOURCEMOD)/public/asm \

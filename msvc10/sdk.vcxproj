@@ -35,7 +35,7 @@
     <ClCompile>
       <AdditionalOptions>/MP /D SE_EPISODEONE=1 /D SE_DARKMESSIAH=2 /D SE_ORANGEBOX=3 /D SE_ORANGEBOXVALVE=4 /D SE_LEFT4DEAD=5 /D SE_LEFT4DEAD2=6 %(AdditionalOptions)</AdditionalOptions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>.;..;..\..\hl2sdk-l4d2\public;..\..\hl2sdk-l4d2\public\engine;..\..\hl2sdk-l4d2\public\game\server;..\..\hl2sdk-l4d2\public\tier0;..\..\hl2sdk-l4d2\public\tier1;..\..\mmsource\core;..\..\mmsource\core\sourcehook;..\..\sourcemod\public;..\..\sourcemod\sourcepawn\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..;..\..\hl2sdk-l4d2\public;..\..\hl2sdk-l4d2\public\engine;..\..\hl2sdk-l4d2\public\game\server;..\..\hl2sdk-l4d2\public\tier0;..\..\hl2sdk-l4d2\public\tier1;..\..\sourcemod\public;..\..\sourcemod\sourcepawn\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;SDK_EXPORTS;_CRT_SECURE_NO_DEPRECATE;SOURCEMOD_BUILD;SOURCE_ENGINE=6;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
