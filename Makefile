@@ -10,6 +10,7 @@ HX_INCLUDE = -I. \
 	-I$(HX_SDKL4D2)/public/tier1 \
 	-I$(HX_SOURCEMOD)/public \
 	-I$(HX_SOURCEMOD)/public/amtl \
+	-I$(HX_SOURCEMOD)/public/amtl/amtl \
 	-I$(HX_SOURCEMOD)/sourcepawn/include
 #
 HX_QWERTY = -D_LINUX \
