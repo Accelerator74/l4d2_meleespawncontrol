@@ -1,6 +1,6 @@
 # Makefile
 HX_SOURCEMOD = ../sourcemod
-HX_SDKL4D2 = ../hl2sdk
+HX_SDKL4D2 = ../hl2sdk-l4d2
 #
 # l4d2_weaponspawncontrol.ext.so
 #
