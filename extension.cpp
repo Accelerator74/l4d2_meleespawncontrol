@@ -2,8 +2,8 @@
 #include "KeyValues.h"
 #include "CDetour/detours.h"
 
-#define GAMEDATA_FILE "l4d2_weaponspawncontrol"
-#define MELEE_LIST "fireaxe;frying_pan;machete;baseball_bat;crowbar;cricket_bat;tonfa;katana;electric_guitar;knife;golfclub"
+#define GAMEDATA_FILE "l4d2_meleespawncontrol"
+#define MELEE_LIST "fireaxe;frying_pan;machete;baseball_bat;crowbar;cricket_bat;tonfa;katana;electric_guitar;knife;golfclub;shovel;pitchfork"
 
 #if defined PLATFORM_WINDOWS
 typedef  void (__thiscall *tGame_KeyValues__SetString)(KeyValues* kv, const char*keyName, const char* value);
@@ -12,7 +12,6 @@ tGame_KeyValues__SetString Game_KeyValues__SetString;
 
 CDetour *Detour_CTerrorGameRules__GetMissionInfo = NULL;
 CDetour *Detour_CDirectorItemManager__IsMeleeWeaponAllowedToExist = NULL;
-CDetour *Detour_CDirectorItemManager__IsWeaponAllowedToExist = NULL;
 
 IGameConfig *g_pGameConf = NULL;
 
@@ -25,10 +24,8 @@ DETOUR_DECL_STATIC0(CTerrorGameRules__GetMissionInfo, KeyValues*)
 	if (result){
 #if !defined PLATFORM_WINDOWS
 		result->SetString("meleeweapons", MELEE_LIST);
-		result->SetInt("no_cs_weapons", 0);
 #else
 		Game_KeyValues__SetString(result, "meleeweapons", MELEE_LIST);
-		result->SetInt("no_cs_weapons", 0);
 #endif
 	}
 	return result;
@@ -38,11 +35,6 @@ DETOUR_DECL_MEMBER1(CDirectorItemManager__IsMeleeWeaponAllowedToExist, bool, cha
 {
 	if (!strcmp(wscript_name, "knife")) return true;
 	return DETOUR_MEMBER_CALL(CDirectorItemManager__IsMeleeWeaponAllowedToExist)(wscript_name);
-}
-
-DETOUR_DECL_MEMBER1(CDirectorItemManager__IsWeaponAllowedToExist, bool, char*, csweapon_name)
-{
-	return true;
 }
 
 bool MeleeSpawnControl::SDK_OnLoad( char *error, size_t maxlength, bool late )
@@ -100,15 +92,6 @@ bool MeleeSpawnControl::SetupHooks(char *error, size_t maxlength)
 		return false;
 	}
 
-	Detour_CDirectorItemManager__IsWeaponAllowedToExist = DETOUR_CREATE_MEMBER(CDirectorItemManager__IsWeaponAllowedToExist, "CDirectorItemManager::IsWeaponAllowedToExist");
-	if (Detour_CDirectorItemManager__IsWeaponAllowedToExist) {
-		Detour_CDirectorItemManager__IsWeaponAllowedToExist->EnableDetour();
-	}else{
-		snprintf(error, maxlength, "Cannot get signature for CDirectorItemManager::IsWeaponAllowedToExist");
-		g_pSM->LogError(myself, error);
-		RemoveHooks();
-		return false;
-	}
 	return true;
 }
 
@@ -120,10 +103,6 @@ void MeleeSpawnControl::RemoveHooks()
 
 	if (Detour_CDirectorItemManager__IsMeleeWeaponAllowedToExist) {
 		Detour_CDirectorItemManager__IsMeleeWeaponAllowedToExist->DisableDetour();
-	}
-	
-	if (Detour_CDirectorItemManager__IsWeaponAllowedToExist) {
-		Detour_CDirectorItemManager__IsWeaponAllowedToExist->DisableDetour();
 	}
 }
 
